@@ -16,8 +16,13 @@
   </p>
 <% end %>
 </section>
-<% if params[:search].present? %>
-  <%= content_tag :div, "data-#{params[:status]}" => true do %>
-    Number of results: undefined for simplicity<%#= @posts.size if @posts %>
-  <% end -%>
-<% end -%>
+<% if params[:search].present? && (:search == "Published") %>
+  <%= content_tag :div, "data-Published" => true do %>
+    Number of results: undefined for simplicity
+  <% end %>
+<% end %>
+<% if params[:search].present? && (:search == "Unpublished") %>
+  <%= content_tag :div, "data-Unpublished" =>true do %>
+    Number of results: undefined for simplicity
+  <% end %>
+<% end %>

@@ -15,14 +15,14 @@
     <%= submit_tag "Search titles", :name => nil %>
   </p>
 <% end %>
+  <% if params[:search].present? || (params[:status] == "published") %>
+    <%= content_tag :div, "data-published" => true do %>
+      Number of results: undefined for simplicity
+    <% end %>
+  <% end %>
+  <% if params[:search].present? || (params[:status] == "unpublished") %>
+    <%= content_tag :div, "data-unpublished" => true do %>
+      Number of results: undefined for simplicity
+    <% end %>
+  <% end %>
 </section>
-<% if params[:search].present? && (:search == "Published") %>
-  <%= content_tag :div, "data-Published" => true do %>
-    Number of results: undefined for simplicity
-  <% end %>
-<% end %>
-<% if params[:search].present? && (:search == "Unpublished") %>
-  <%= content_tag :div, "data-Unpublished" =>true do %>
-    Number of results: undefined for simplicity
-  <% end %>
-<% end %>
